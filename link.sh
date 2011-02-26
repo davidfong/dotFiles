@@ -1,4 +1,5 @@
 #!/bin/bash
 pushd ~
-ln -s ~/dotFiles/vim .vim
+rm .vim
+ln -sf  ~/dotFiles/vim .vim
 popd
