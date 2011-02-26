@@ -1,0 +1,29 @@
+*** conque_term.vim	2011-01-29 11:07:26.000000000 -0800
+--- conque_term.vim.new	2011-01-29 11:08:08.000000000 -0800
+***************
+*** 1090,1101 ****
+      sil exe "normal! `<" . a:type . "`>y"
+  
+      " format yanked text
+!     let @@ = substitute(@@, '^[\r\n]*', '', '')
+!     let @@ = substitute(@@, '[\r\n]*$', '', '')
+  
+      " execute yanked text
+      sil exe ":sb " . g:ConqueTerm_BufName
+!     sil exe s:py . ' ' . g:ConqueTerm_Var . '.paste_selection()'
+  
+      " reset original values
+      let @@ = reg_save
+--- 1090,1101 ----
+      sil exe "normal! `<" . a:type . "`>y"
+  
+      " format yanked text
+!     " let @@ = substitute(@@, '^[\\r\\n]*', '', '')
+!     " let @@ = substitute(@@, '[\\r\\n]*$', '', '')
+  
+      " execute yanked text
+      sil exe ":sb " . g:ConqueTerm_BufName
+!     sil exe s:py . ' ' . g:ConqueTerm_Var . '.paste()'
+  
+      " reset original values
+      let @@ = reg_save
