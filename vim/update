@@ -5,7 +5,9 @@
 git_bundles = [ 
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/tsaleh/vim-supertab.git",
-  "git://github.com/tsaleh/vim-tcomment.git",
+  "git://github.com/vim-scripts/Javascript-Indentation.git",
+  # "git://github.com/tsaleh/vim-tcomment.git",
+  "git://github.com/vim-scripts/The-NERD-Commenter.git",
   "git://github.com/Shougo/neocomplcache.git",
   "git://github.com/hallettj/jslint.vim.git",
   "git://github.com/vim-scripts/pyflakes.vim.git",
@@ -13,6 +15,7 @@ git_bundles = [
   "git://github.com/vim-scripts/MatlabFilesEdition.git",
   "git://github.com/vim-scripts/Conque-Shell.git",
   "git://github.com/vim-scripts/L9.git",
+  "git://github.com/vim-scripts/Vim-R-plugin.git",
   "git://github.com/vim-scripts/FuzzyFinder.git",
   "git://github.com/vim-scripts/IndentAnything.git",
   "git://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git",
