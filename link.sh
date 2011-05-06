@@ -8,7 +8,7 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
   bashfilename='.bash_profile'
 elif [[ "$unamestr" == 'Linux' ]]; then
-  bashfilename='.bash_profile'
+  bashfilename='.bashrc'
 fi
 # remove source line if it exist
 cp $bashfilename $bashfilename.bak

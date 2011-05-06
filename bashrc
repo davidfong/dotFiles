@@ -29,6 +29,8 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 # bash tab completion
 bind "set completion-ignore-case on"
 
+PATH=~/bin:$PATH
+
 #######################################################
 # OS specific section starts here
 #######################################################
@@ -50,7 +52,7 @@ if [[ $platform == 'osx' ]]; then
   # showing only username and pwd at the prompt
   PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
-  PATH=~/bin:/usr/local/Cellar/ruby/1.9.2-p136/bin:$PATH
+  PATH=/usr/local/Cellar/ruby/1.9.2-p136/bin:$PATH
   PATH=$PATH:/usr/texbin:/usr/X11/bin:~/src/go/bin:/usr/local/sbin
   PATH=$PATH:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin
 
@@ -106,7 +108,7 @@ elif [[ $platform == 'linux' ]]; then
   #######################################################
   # Linux
   #######################################################
-  alias ls="ls --color"
+  alias ls="ls --color=auto"
 
 fi
 
