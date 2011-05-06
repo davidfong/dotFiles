@@ -15,5 +15,5 @@ fi
 cp $bashfilename $bashfilename.bak
 cat $bashfilename.bak | sed '/bashrc.git/d' > $bashfilename
 # add source line
-echo "source .bashrc.git" >> $bashfilename
+echo "source ~/.bashrc.git" >> $bashfilename
 popd
