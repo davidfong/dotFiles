@@ -1,2 +1,3 @@
 vim/sync/
 vim/bundle/*
+!vim/bundle/README
