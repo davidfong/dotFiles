@@ -4,6 +4,7 @@ rm .vim
 ln -sf  ~/dotFiles/vim .vim
 ln -sf ~/dotFiles/tmux.conf .tmux.conf
 ln -sf ~/dotFiles/bashrc .bashrc.git
+ln -sf ~/dotFiles/gitglobalconfig .gitconfig
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
   bashfilename='.bash_profile'

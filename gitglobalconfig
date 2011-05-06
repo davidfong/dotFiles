@@ -1,0 +1,37 @@
+[user]
+	name = David Fong
+	email = david3.14159@gmail.com
+[core]
+	editor = ~/bin/vim
+[diff]
+        external = git_diff_wrapper
+[pager]
+        diff =
+[alias]
+        ci = commit
+        co = checkout
+        st = status
+[apply]
+        whitespace = fix
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
