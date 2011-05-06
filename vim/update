@@ -41,6 +41,8 @@ FileUtils.cd(bundles_dir)
 puts "Trashing everything (lookout!)"
 Dir["*"].each {|d| FileUtils.rm_rf d }
 
+`git checkout README`
+
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
   puts "  Unpacking #{url} into #{dir}"
