@@ -78,5 +78,8 @@ if [[ $platform == 'osx' ]]; then
 #######################################################
 elif [[ $platform == 'linux' ]]; then
   alias ls="ls --color=auto"
+
+  # Added by autojump install.sh
+  source /etc/profile.d/autojump.bash
 fi
 
