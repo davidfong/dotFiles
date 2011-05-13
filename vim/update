@@ -6,6 +6,7 @@ git_bundles = [
   "git://github.com/vim-scripts/pathogen.vim.git",
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/tsaleh/vim-supertab.git",
+  "git://github.com/digitaltoad/vim-jade.git",
   "git://github.com/vim-scripts/Javascript-Indentation.git",
   # "git://github.com/tsaleh/vim-tcomment.git",
   "git://github.com/vim-scripts/The-NERD-Commenter.git",

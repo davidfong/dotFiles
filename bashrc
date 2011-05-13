@@ -72,6 +72,8 @@ if [[ $platform == 'osx' ]]; then
   if [ -f `brew --prefix`/etc/autojump ]; then
     . `brew --prefix`/etc/autojump
   fi
+  export PATH=/usr/local/cuda/bin:$PATH
+  export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 
 #######################################################
 # Linux
