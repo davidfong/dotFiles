@@ -1,5 +1,7 @@
-Run 
-```bash
-./link.sh
+Run
+ 
 ```
+./setup
+```
+
 to add the appropriate symbolic links 
