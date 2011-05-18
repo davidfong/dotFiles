@@ -90,6 +90,8 @@ set tags+=~/.vim/tags/stl
 " JSON syntax
 au! BufRead,BufNewFile *.json setfiletype json
 
+au! BufRead,BufNewFile *.cl setlocal filetype=opencl
+
 " cpp syntax folding
 au! BufRead *.c,*.h,*.cpp set foldmethod=syntax
 
@@ -97,9 +99,9 @@ au! BufRead *.c,*.h,*.cpp set foldmethod=syntax
 " au FileType tex set textwidth=65
 map <F8> :w<Enter>\ll<Enter><C-l><Enter>
 let g:Tex_DefaultTargetFormat = 'pdf'
-" let g:Tex_CompileRule_pdf = 'pdflatex -shell-escape '.
-                           " \'--interaction=nonstopmode '.
-                           " \'-synctex=1 $*'
+let g:Tex_CompileRule_pdf = 'pdflatex --shell-escape '.
+                           \'--interaction=nonstopmode '.
+                           \'-synctex=1 $*'
 " let g:Tex_ViewRule_pdf = 'open -a /Applications/Skim.app'
 let g:Tex_ViewRule_pdf = 'Skim'
 let g:Tex_IgnoredWarnings = "Underfull\n".
