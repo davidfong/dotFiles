@@ -22,6 +22,7 @@ alias o="open"
 alias so="source"
 alias axel="axel -a -n 10"
 alias t='TERM=xterm-256color tmux attach'
+alias wget='wget --no-check-certificate'
 
 # ignore duplication and some simple commands in bash history
 export HISTIGNORE="&:ls:[bf]g:exit"
@@ -53,7 +54,7 @@ if [[ $platform == 'osx' ]]; then
 
   PATH=/usr/local/Cellar/ruby/1.9.2-p136/bin:$PATH
   PATH=$PATH:/usr/texbin:/usr/X11/bin:~/src/go/bin:/usr/local/sbin
-  PATH=$PATH:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin
+  PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH:/usr/local/bin
 
   CDPATH=$CDPATH:~/User/p3_PhD/
 

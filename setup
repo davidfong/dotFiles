@@ -2,6 +2,7 @@
 pushd ~
 rm .vim
 ln -sf  ~/dotFiles/vim .vim
+ln -sf  ~/dotFiles/vim/.vimrc .vimrc
 ln -sf ~/dotFiles/tmux.conf .tmux.conf
 ln -sf ~/dotFiles/bashrc .bashrc.git
 ln -sf ~/dotFiles/gitglobalconfig .gitconfig
@@ -10,7 +11,11 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   bashfilename='.bash_profile'
 elif [[ "$unamestr" == 'Linux' ]]; then
   bashfilename='.bashrc'
+  sudo apt-get install ruby
 fi
+pushd .vim
+./update
+popd
 # remove source line if it exist
 cp $bashfilename $bashfilename.bak
 cat $bashfilename.bak | sed '/bashrc.git/d' > $bashfilename
