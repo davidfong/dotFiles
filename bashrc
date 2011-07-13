@@ -32,6 +32,57 @@ bind "set completion-ignore-case on"
 
 PATH=~/bin:$PATH
 
+# Change directory back - 1-7 times - and forth with TAB-completion.
+# Copyright (C) 2007-2008  Freddy Vulto
+# Version: cdots-1.2.1
+# Usage: .. [dir]
+#        ... [dir]
+#        .... [dir]
+#        ..... [dir]
+#        ...... [dir]
+#        ....... [dir]
+#        ........ [dir]
+
+function _cdots() {
+        # ':1' = Ignore dot at pos 0
+    local dots=${COMP_WORDS[COMP_CWORD-1]:1} IFS=$'\n' i j=0
+        #      +-----------2---------+ : Remove trailing `/*'s from PWD
+        #      |     +-------1------+| : Replace every `.' with `/*'
+    local dir="${PWD%${dots//\./\/\*}}/"
+        # If first `compgen' returns no matches, try second `compgen'
+        # which allows for globbing characters
+    for i in $(
+        compgen -d -- "$dir${COMP_WORDS[COMP_CWORD]}" ||
+        compgen -d -X '!'"$dir${COMP_WORDS[COMP_CWORD]}*" -- $dir
+    ); do
+            #  If i not dir in current dir, append extra slash '/'
+            #  NOTE: With bash > v2, if i is also dir in current dir, 
+            #+       'complete -o filenames' automatically appends 
+            #+       slash '/'
+        (( $BASH_VERSINFO == 2 )) || [ ! -d ${i#$dir} ] && i="$i/"
+        COMPREPLY[j++]="${i#$dir}"
+    done
+} # _cdots()
+
+function cdots() {
+    # If dir can't be found, try globbing with `eval'
+    [ -d "$1$2" ] && cd "$1$2" || eval cd "$1$2"
+} # cdots()
+
+    # Define aliases .. ... .... etc, up to depth seven
+    # NOTE: Functions are not defined directly as .. ... .... etc, 
+    #       because these are not valid identifiers under `POSIX'
+cdotsAlias=.; cdotsAliases=; cdotsDepth=7; cdotsDir=
+while ((cdotsDepth--)); do
+    cdotsAlias=$cdotsAlias.; cdotsDir=$cdotsDir../
+    alias $cdotsAlias="cdots $cdotsDir"
+    cdotsAliases="$cdotsAliases $cdotsAlias"
+done
+    # Set completion of aliases .. ... .... etc to _cdots()
+    # -o filenames: Escapes whitespace
+complete -o filenames -o nospace -F _cdots $cdotsAliases
+unset -v cdotsDepth cdotsAlias cdotsAliases cdotsDir
+
 #######################################################
 # OS specific section starts here
 #######################################################
