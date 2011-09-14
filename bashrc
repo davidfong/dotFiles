@@ -15,7 +15,7 @@ export AWS_CREDENTIAL_FILE=$AWS_IAM_HOME/david_cred.txt
 # bash vi mode
 set -o vi
 
-alias v="~/bin/vim -X"
+alias v="~/bin/vim"
 alias vn="vim --servername vim"
 alias p="python"
 alias o="open"
@@ -125,7 +125,15 @@ if [[ $platform == 'osx' ]]; then
     . `brew --prefix`/etc/autojump
   fi
   export PATH=/usr/local/cuda/bin:$PATH
+  export PATH=$PATH:/Developer/usr/bin
   export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+
+  # Use bash completion
+  # Need to run
+  # >>> brew install bash-completion
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+  fi
 
 #######################################################
 # Linux

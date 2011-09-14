@@ -100,13 +100,15 @@ au! BufRead *.c,*.h,*.cpp set foldmethod=syntax
 
 " latex specific settings
 " au FileType tex set textwidth=65
-map <F8> :w<Enter>\ll<Enter><C-l><Enter>
+map <F10> :w<Enter>\ll<Enter><C-l><Enter>
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --shell-escape '.
                            \'--interaction=nonstopmode '.
                            \'-synctex=1 $*'
 " let g:Tex_ViewRule_pdf = 'open -a /Applications/Skim.app'
 let g:Tex_ViewRule_pdf = 'Skim'
+" let g:Tex_TreatMacViewerAsUNIX = 1
+let g:Tex_UseMakefile = 0
 let g:Tex_IgnoredWarnings = "Underfull\n".
       \"Overfull\n".
       \"specifier changed to\n".
@@ -116,9 +118,10 @@ let g:Tex_IgnoredWarnings = "Underfull\n".
       \"Citation %.%# undefined\n".
       \"LaTeX Font Warning\n".
       \"(epstopdf)\n".
-      \"Unused global\n"
+      \"Unused global\n".
+      \"Marginpar on page\n"
 " keep this number the same as the number of lines above
-let g:Tex_IgnoreLevel = 10
+let g:Tex_IgnoreLevel = 11
 
 " use ,t to perform textwrap on a paragraph
 map ,t {!}fmt<Enter>
@@ -170,6 +173,8 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1 
 let g:neocomplcache_enable_camel_case_completion = 1 
 let g:neocomplcache_enable_underbar_completion = 1 
+let g:neocomplcache_manual_completion_start_length = 2
+let g:neocomplcache_max_filename_width = 40
 " let g:neocomplcache_enable_quick_match = 1
 " let g:neocomplcache_quick_match_patterns = {'default':'-'}
 
@@ -226,7 +231,8 @@ set go-=R
 set go-=r
 set go-=L
 set go-=l
-set guifont=Monaco\ 14 
+" set guifont=Monaco\ 14   "For gvim
+set guifont=Monaco:h14     "For MacVim
 
 " color scheme
 set t_Co=256
