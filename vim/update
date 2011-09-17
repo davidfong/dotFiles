@@ -7,6 +7,7 @@ git_bundles = [
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/tsaleh/vim-supertab.git",
   "git://github.com/digitaltoad/vim-jade.git",
+  "git://github.com/Lokaltog/vim-easymotion.git",
   "git://github.com/vim-scripts/Javascript-Indentation.git",
   "git://github.com/vim-scripts/opencl.vim--Wierzowiecki.git",
   # "git://github.com/tsaleh/vim-tcomment.git",
@@ -18,14 +19,15 @@ git_bundles = [
   "git://github.com/vim-scripts/MatlabFilesEdition.git",
   "git://github.com/vim-scripts/Conque-Shell.git",
   "git://github.com/vim-scripts/L9.git",
-  "git://github.com/vim-scripts/Vim-R-plugin.git",
+  # "git://github.com/vim-scripts/Vim-R-plugin.git",
   "git://github.com/vim-scripts/FuzzyFinder.git",
   "git://github.com/vim-scripts/IndentAnything.git",
   # "git://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git",
   # The repo below is newer for latexsuite
   "git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex",
+  # "git://github.com/davidfong/AutomaticLatexPlugin.git",
   "git://github.com/vim-scripts/JSON.vim.git",
-  "git://git.wincent.com/command-t.git",
+  # "git://git.wincent.com/command-t.git",
   "git://github.com/vim-scripts/mlint.vim--Ibbotson.git"
 ]
 
@@ -62,6 +64,6 @@ hg_bundles.each do |url|
   FileUtils.rm_rf(File.join(dir, ".hgtags"))
 end
 
-working_dir = bundles_dir + "/command-t"
-FileUtils.cd(working_dir)
-`rake make`
+# working_dir = bundles_dir + "/command-t"
+# FileUtils.cd(working_dir)
+# `rake make`

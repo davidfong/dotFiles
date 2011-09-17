@@ -7,16 +7,58 @@
 " <F5> open REPL
 " <F6> send selection to ConqueTerm
 " <Ctrl-s> textwrap on a paragraph
-" <F8> save and pdflatex
+" <F10> save and pdflatex
 "
 
-" Header for pathogen
-filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" original repos on github
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tsaleh/vim-supertab'
+Bundle 'Shougo/neocomplcache'
+Bundle 'msanders/snipmate.vim'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'hallettj/jslint.vim'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'Javascript-Indentation'
+Bundle 'opencl.vim--Wierzowiecki'
+Bundle 'pyflakes.vim'
+Bundle 'JavaScript-syntax'
+Bundle 'MatlabFilesEdition'
+Bundle 'Conque-Shell'
+Bundle 'L9'
+Bundle 'IndentAnything'
+Bundle 'JSON.vim'
+Bundle 'mlint.vim--Ibbotson'
+Bundle 'The-NERD-Commenter'
+" non github repos
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+
+" Bundle 'AutomaticLatexPlugin'
+" Bundle 'Vim-R-plugin'
+" Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+" Bundle 'git://git.wincent.com/command-t'
+
+filetype plugin indent on
 
 set modelines=0
 
@@ -99,15 +141,12 @@ au! BufRead,BufNewFile *.cl setlocal filetype=opencl
 au! BufRead *.c,*.h,*.cpp set foldmethod=syntax
 
 " latex specific settings
-" au FileType tex set textwidth=65
 map <F10> :w<Enter>\ll<Enter><C-l><Enter>
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --shell-escape '.
                            \'--interaction=nonstopmode '.
                            \'-synctex=1 $*'
-" let g:Tex_ViewRule_pdf = 'open -a /Applications/Skim.app'
 let g:Tex_ViewRule_pdf = 'Skim'
-" let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_UseMakefile = 0
 let g:Tex_IgnoredWarnings = "Underfull\n".
       \"Overfull\n".
@@ -272,3 +311,6 @@ au InsertEnter * hi CursorLine ctermbg=236
 " Command-T settings
 set wildignore+=*.pdf,*.mat,*.aux
 let g:CommandTCancelMap='<C-c>'
+
+" shortcuts
+imap gkb Golub-Kahan bidiagonalization

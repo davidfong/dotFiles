@@ -1,6 +1,6 @@
 source ~/.bashrc.local
 
-export VERSIONER_PYTHON_PREFER_32_BIT=yes
+# export VERSIONER_PYTHON_PREFER_32_BIT=yes
 
 # Setup Amazon EC2 Command-Line Tools
 export EC2_HOME=~/.ec2
