@@ -10,7 +10,8 @@
 [alias]
         ci = commit
         co = checkout
-        st = status
+        st = status -sb
+        lol = log --pretty=oneline --abbrev-commit --graph --decorate
 [apply]
         whitespace = fix
 [color]

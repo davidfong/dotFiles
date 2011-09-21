@@ -8,8 +8,9 @@
 " <F6> send selection to ConqueTerm
 " <Ctrl-s> textwrap on a paragraph
 " <F10> save and pdflatex
-"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Begin vundle settings
 set nocompatible
 filetype off
 
@@ -60,8 +61,9 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 filetype plugin indent on
 
+" End vundle settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modelines=0
-
 set relativenumber
 syntax on
 set incsearch
@@ -140,7 +142,7 @@ au! BufRead,BufNewFile *.cl setlocal filetype=opencl
 " cpp syntax folding
 au! BufRead *.c,*.h,*.cpp set foldmethod=syntax
 
-" latex specific settings
+" latexsuite specific settings
 map <F10> :w<Enter>\ll<Enter><C-l><Enter>
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --shell-escape '.
@@ -161,11 +163,16 @@ let g:Tex_IgnoredWarnings = "Underfull\n".
       \"Marginpar on page\n"
 " keep this number the same as the number of lines above
 let g:Tex_IgnoreLevel = 11
+set shellslash " For windows
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+" This ensures that if labels are changed, pdflatex will run
+" twice, and if *.bib changed, bibtex will also be run.
+let g:Tex_MultipleCompileFormats='pdf'
 
 " use ,t to perform textwrap on a paragraph
 map ,t {!}fmt<Enter>
 vmap ,t !fmt<Enter>
-
 
 " Mappings for ctags
 map :ct :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q 
@@ -227,29 +234,6 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " au Filetype python set sw=4 "Use 4 space tab stop
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The section below are for vim-latexsuite settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-" This ensures that if labels are changed, pdflatex will run
-" twice, and if *.bib changed, bibtex will also be run.
-let g:Tex_MultipleCompileFormats='pdf'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The section below are for fuzzyfinder settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F2> :FufFile<Enter>
@@ -304,7 +288,7 @@ map <F5> \p bash<Enter><Enter>
 au BufEnter *.m map <F5> \p matlabf<Enter><Enter>
 " au BufEnter *.py map <F5> \\p bpython<Enter><Enter>
 
-
+" Show a horizontal line in insert mode
 au InsertLeave * hi CursorLine ctermbg=234
 au InsertEnter * hi CursorLine ctermbg=236
 
